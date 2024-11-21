@@ -3,7 +3,13 @@
 <head>
 <script>
   function myFunction(){
-    window.location.replace("https://localhost:3000/");
+    const searchParams = new URLSearchParams(window.location.search);
+    var loc = searchParams.get('redirectUrl'); 
+    if (str === null || str.length === 0) {
+      loc = "https://localhost:3000/";
+    }
+    console.log("Redirecting to: ", loc);
+    window.location.replace(loc);
   }
 </script>
 </head>
