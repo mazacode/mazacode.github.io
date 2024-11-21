@@ -5,7 +5,7 @@
   function myFunction(){
     const searchParams = new URLSearchParams(window.location.search);
     var loc = searchParams.get('redirectUrl'); 
-    if (str === null || str.length === 0) {
+    if (loc === null || loc.length === 0) {
       loc = "https://localhost:3000/";
     }
     console.log("Redirecting to: ", loc);
