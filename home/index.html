@@ -2,6 +2,13 @@
 <html>
 <head>
 <script>
+  function setCookieAndRedirect(name, value, expiryDays, path, redirectUrl) {
+  const date = new Date();
+  date.setTime(date.getTime() + (expiryDays * 24 * 60 * 60 * 1000));
+  const expires = "expires=" + date.toUTCString();
+  document.cookie = name + "=" + value + ";" + expires + ";path=" + path;
+  window.location.href = redirectUrl;
+   }  
   function myFunction(){
     const searchParams = new URLSearchParams(window.location.search);
     var loc = searchParams.get('redirectUrl'); 
@@ -9,7 +16,7 @@
       loc = "https://localhost:3000/";
     }
     console.log("Redirecting to: ", loc);
-    window.location.replace(loc);
+    setCookieAndRedirect("test-cookie", "It is testing", "/", loc);
   }
 </script>
 </head>
